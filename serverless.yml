@@ -1,0 +1,35 @@
+service: gcp-api-project
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  environment:
+    JWT_SECRET: ${env:JWT_SECRET}  # JWT secret from environment variable
+    MONGODB_URI: ${env:MONGODB_URI}  # MongoDB URI from environment variable
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - http:
+          path: api/welcome
+          method: get
+          cors: true
+      - http:
+          path: api/description
+          method: get
+          cors: true
+      - http:
+          path: api/registration
+          method: post
+          cors: true
+      - http:
+          path: api/login
+          method: post
+          cors: true
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin  # Plugin to load environment variables from .env file
+
