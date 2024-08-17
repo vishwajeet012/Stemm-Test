@@ -20,10 +20,5 @@ This project is a Node.js-based API application designed to demonstrate best pra
 - MongoDB Atlas account
 - AWS account
 
-## Installation
 
-1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
